@@ -17,5 +17,26 @@ class TestSingleLinkedList(unittest.TestCase):
         self.assertEqual(colors.pop(), "Magenta")
         self.assertEqual(colors.pop(), None)
         
+    def test_unshif(self):
+        colors = SingleLinkedList()
+        colors.push("Viridian")
+        colors.push("Sap Green")
+        colors.push("Van Dyke")
+        self.assertEqual(colors.unshift(), "Viridian")
+        self.assertEqual(colors.unshift(), "Sap Green")
+        self.assertEqual(colors.unshift(), "Van Dyke")
+        self.assertEqual(colors.unshift(), None)
+        
+    def test_shift(self):
+        colors = SingleLinkedList()
+        colors.shift("Cadmium Orange")
+        self.assertEqual(colors.count(), 1)
+        colors.shift("Carbazole Violet")
+        self.assertEqual(colors.count(), 2)
+        self.assertEqual(colors.pop(), "Cadmium Orange")
+        self.assertEqual(colors.count(), 1)
+        self.assertEqual(colors.pop(), "Carbazole Violet")
+        self.assertEqual(colors.count(), 0)
+        
 if __name__ == '__main__':
     unittest.main()
