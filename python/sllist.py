@@ -1,5 +1,5 @@
 class SingleLinkedListNode(object):
-    def __init__(self, value, nxt):
+    def __init__(self, value, nxt) -> None:
         self.value = value
         self.next = nxt
         
@@ -8,7 +8,7 @@ class SingleLinkedListNode(object):
         return f"[{self.value}:{repr(nval)}]"
     
 class SingleLinkedList(object):
-    def __init__(self):
+    def __init__(self) -> None:
         self.begin = None
         self.end = None
         

@@ -38,5 +38,24 @@ class TestSingleLinkedList(unittest.TestCase):
         self.assertEqual(colors.pop(), "Carbazole Violet")
         self.assertEqual(colors.count(), 0)
         
+    def test_first(self):
+        colors = SingleLinkedList()
+        colors.push("Cadmium Red Light")
+        self.assertEqual(colors.first(), "Cadmium Red Light")
+        colors.push("Hansa Yellow")
+        self.assertEqual(colors.first(), "Cadmium Red Light")
+        colors.shift("Pthalo Green")
+        self.assertEqual(colors.first(), "Pthalo Green")
+        
+    def test_last(self):
+        colors = SingleLinkedList()
+        colors.push("Cadmium Red Light")
+        self.assertEqual(colors.last(), "Cadmium Red Light")
+        colors.push("Hansa Yellow")
+        self.assertEqual(colors.last(), "Hansa Yellow")
+        colors.shift("Pthalo Green")
+        self.assertEqual(colors.last(), "Hansa Yellow")
+        
+        
 if __name__ == '__main__':
     unittest.main()
