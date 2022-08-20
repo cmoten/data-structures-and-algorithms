@@ -39,10 +39,10 @@ class SingleLinkedList(object):
             while node.next != self.end:
                 node = node.next
             assert self.end != node
-            temp = node.next.value
+            popped_node = node.next.value
             node.next = None
             self.end = node
-            return temp
+            return popped_node
         
     def shift(self, obj):
         """Another name for push."""
