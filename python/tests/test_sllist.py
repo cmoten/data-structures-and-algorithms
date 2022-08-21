@@ -1,3 +1,4 @@
+from tokenize import Single
 import unittest
 from sllist import *
 
@@ -37,6 +38,18 @@ class TestSingleLinkedList(unittest.TestCase):
         self.assertEqual(colors.count(), 1)
         self.assertEqual(colors.pop(), "Carbazole Violet")
         self.assertEqual(colors.count(), 0)
+        
+    def test_remove(self):
+        colors = SingleLinkedList()
+        colors.push("Cobalt")
+        colors.push("Zinc White")
+        colors.push("Nickel Yellow")
+        colors.push("Perinone")
+        self.assertEqual(colors.remove("Cobalt"), 0)
+        self.assertEqual(colors.remove("Perinone"), 2)
+        self.assertEqual(colors.remove("Nickel Yellow"), 1)
+        self.assertEqual(colors.remove("Zinc White"), 0)
+        
         
     def test_first(self):
         colors = SingleLinkedList()

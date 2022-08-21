@@ -1,3 +1,6 @@
+from tabnanny import check
+
+
 class SingleLinkedListNode(object):
     def __init__(self, value, nxt) -> None:
         self.value = value
@@ -39,10 +42,10 @@ class SingleLinkedList(object):
             while node.next != self.end:
                 node = node.next
             assert self.end != node
-            popped_node = node.next.value
+            poppedNode = node.next.value
             node.next = None
             self.end = node
-            return popped_node
+            return poppedNode
         
     def shift(self, obj):
         """Another name for push."""
@@ -78,6 +81,25 @@ class SingleLinkedList(object):
         if self.begin == None:
             index -= 1
             return index
+        if self.begin.value == checkValue.value:
+            index = 0
+            self.unshift()
+            return index
+        if self.end.value == checkValue.value:
+            index = self.count() - 1
+            self.pop()
+            return index
+        currentNode = self.begin
+        while currentNode.next != self.end:
+            prevNode = currentNode
+            currentNode = currentNode.next
+            index += 1
+            testValue = self.get(index)
+            if testValue == checkValue.value:
+                prevNode.next = currentNode.next
+                return index
+                
+                
 
     def first(self):
         """Returns a *reference* to the first item, does not remove."""
@@ -110,4 +132,8 @@ class SingleLinkedList(object):
 
     def dump(self, mark):
         """Debugging function that dumps the contents of the list."""
+        node = self.begin
+        while node:
+            print(repr(node))
+            node = node.next
         
