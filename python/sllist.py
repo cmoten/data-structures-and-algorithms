@@ -109,7 +109,7 @@ class SingleLinkedList(object):
         """Returns a reference to the last item, does not remove."""
         return self.end.value
         
-    def count(self):
+    def count(self)->int:
         """Counts the number of elements in the list"""
         node = self.begin
         count = 0
