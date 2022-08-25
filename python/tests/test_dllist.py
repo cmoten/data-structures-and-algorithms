@@ -1,35 +1,25 @@
-from tokenize import Single
 import unittest
-from sllist import *
+from dllist import *
 
-class TestSingleLinkedList(unittest.TestCase):
+class TestDoubleLinkedList(unittest.TestCase):
     def test_push(self):
-        colors = SingleLinkedList()
+        colors = DoubleLinkedList()
         colors.push("Pthalo Blue")
         self.assertEqual(colors.count(), 1)
         colors.push("Ultramarine Blue")
         self.assertEqual(colors.count(), 2)
         
     def test_pop(self):
-        colors = SingleLinkedList()
+        colors = DoubleLinkedList()
         colors.push("Magenta")
         colors.push("Alizarin")
         self.assertEqual(colors.pop(), "Alizarin")
+        self.assertEqual(colors.count(), 1)
         self.assertEqual(colors.pop(), "Magenta")
         self.assertEqual(colors.pop(), None)
         
-    def test_unshift(self):
-        colors = SingleLinkedList()
-        colors.push("Viridian")
-        colors.push("Sap Green")
-        colors.push("Van Dyke")
-        self.assertEqual(colors.unshift(), "Viridian")
-        self.assertEqual(colors.unshift(), "Sap Green")
-        self.assertEqual(colors.unshift(), "Van Dyke")
-        self.assertEqual(colors.unshift(), None)
-        
     def test_shift(self):
-        colors = SingleLinkedList()
+        colors = DoubleLinkedList()
         colors.shift("Cadmium Orange")
         self.assertEqual(colors.count(), 1)
         colors.shift("Carbazole Violet")
@@ -39,8 +29,18 @@ class TestSingleLinkedList(unittest.TestCase):
         self.assertEqual(colors.pop(), "Carbazole Violet")
         self.assertEqual(colors.count(), 0)
         
+    def test_unshift(self):
+        colors = DoubleLinkedList()
+        colors.push("Viridian")
+        colors.push("Sap Green")
+        colors.push("Van Dyke")
+        self.assertEqual(colors.unshift(), "Viridian")
+        self.assertEqual(colors.unshift(), "Sap Green")
+        self.assertEqual(colors.unshift(), "Van Dyke")
+        self.assertEqual(colors.unshift(), None)
+        
     def test_remove(self):
-        colors = SingleLinkedList()
+        colors = DoubleLinkedList()
         colors.push("Cobalt")
         colors.push("Zinc White")
         colors.push("Nickel Yellow")
@@ -50,9 +50,8 @@ class TestSingleLinkedList(unittest.TestCase):
         self.assertEqual(colors.remove("Nickel Yellow"), 1)
         self.assertEqual(colors.remove("Zinc White"), 0)
         
-        
     def test_first(self):
-        colors = SingleLinkedList()
+        colors = DoubleLinkedList()
         colors.push("Cadmium Red Light")
         self.assertEqual(colors.first(), "Cadmium Red Light")
         colors.push("Hansa Yellow")
@@ -61,7 +60,7 @@ class TestSingleLinkedList(unittest.TestCase):
         self.assertEqual(colors.first(), "Pthalo Green")
         
     def test_last(self):
-        colors = SingleLinkedList()
+        colors = DoubleLinkedList()
         colors.push("Cadmium Red Light")
         self.assertEqual(colors.last(), "Cadmium Red Light")
         colors.push("Hansa Yellow")
@@ -70,7 +69,7 @@ class TestSingleLinkedList(unittest.TestCase):
         self.assertEqual(colors.last(), "Hansa Yellow")
         
     def test_get(self):
-        colors = SingleLinkedList()
+        colors = DoubleLinkedList()
         colors.push("Vermillion")
         self.assertEqual(colors.get(0), "Vermillion")
         colors.push("Sap Green")
@@ -87,9 +86,8 @@ class TestSingleLinkedList(unittest.TestCase):
         colors.pop()
         self.assertEqual(colors.get(0), "Vermillion")
         colors.pop()
-        self.assertEqual(colors.get(0), None)
+        self.assertEqual(colors.get(0), None)                
+        
 
-        
-        
 if __name__ == '__main__':
     unittest.main()
