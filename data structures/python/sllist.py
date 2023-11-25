@@ -97,9 +97,7 @@ class SingleLinkedList(object):
             testValue = self.get(index)
             if testValue == checkValue.value:
                 prevNode.next = currentNode.next
-                return index
-                
-                
+                return index       
 
     def first(self):
         """Returns a *reference* to the first item, does not remove."""
