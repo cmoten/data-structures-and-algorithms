@@ -22,6 +22,7 @@ class Stack(object):
         else:
             node.next = self.top
             self.top = node
+            
     def pop(self):
         """Pops the value that is currently on the top of the stack"""
         if self.top == None:
@@ -32,7 +33,7 @@ class Stack(object):
         return node.value
         
     def first(self):
-        """Returns a reference to the first ijte, does not remove."""
+        """Returns a reference to the first item, does not remove."""
         return self.top != None and self.top.value or None
             
     def count(self) -> int:
